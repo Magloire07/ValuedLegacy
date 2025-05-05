@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/IntroScene.unity
+    guid: f0f36f912e1bf9f4aa3911eb25177750
+  - enabled: 0
+    path: Assets/MainGame/scene/MainScene.unity
+    guid: 79f8bac4c75da6e43bd8288f7d84106c
+  - enabled: 1
+    path: Assets/BK_AlchemistHouse/Scenes/ff.unity
+    guid: 0dde8e03695d1d0428fc4ade1ecb646a
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_UseUCBPForAssetBundles: 0
