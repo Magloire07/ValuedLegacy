@@ -7,6 +7,8 @@ public class QuitTrigger : MonoBehaviour
 {
     public GameObject world3DObjects;
     public GameObject game2DCanvas;
+    public Button EmilieBt;
+
     public Image fadeImage; // Image noire pour l'effet de transition
     public float fadeDuration = 1f; // Durée de la transition
 
@@ -27,8 +29,11 @@ public class QuitTrigger : MonoBehaviour
 
         if (game2DCanvas != null)
             game2DCanvas.SetActive(true);
+        // bloquer le bouton pour la scene emilie
+        EmilieBt.interactable = false;
 
         // Débloquer et rendre visible la souris
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 

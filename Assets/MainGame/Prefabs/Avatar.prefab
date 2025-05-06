@@ -1931,7 +1931,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5427307378715851949}
-  - component: {fileID: 1267298271696231663}
   - component: {fileID: 767377649089184650}
   - component: {fileID: 6157716543542687799}
   m_Layer: 0
@@ -1956,21 +1955,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 540760387880882883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1267298271696231663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3102485971042154282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0863d1b8a82f64d9c3006f6fe687cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClothingItem: {fileID: 11400000, guid: bd0a4384161c5654cbda693888a17df3, type: 2}
-  VariationIndex: 1
-  IsEquipped: 1
 --- !u!33 &767377649089184650
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4477,7 +4461,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7646136047197750903}
-  - component: {fileID: 3749743762932402460}
   - component: {fileID: 5909162446096928870}
   - component: {fileID: 4466671339472595232}
   m_Layer: 0
@@ -4502,21 +4485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 540760387880882883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3749743762932402460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6802670724796414064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0863d1b8a82f64d9c3006f6fe687cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClothingItem: {fileID: 11400000, guid: c6b69825f44689a4aba1f1313689c424, type: 2}
-  VariationIndex: 1
-  IsEquipped: 1
 --- !u!33 &5909162446096928870
 MeshFilter:
   m_ObjectHideFlags: 0

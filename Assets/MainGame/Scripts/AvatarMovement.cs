@@ -47,12 +47,6 @@ public class AvatarMovement : MonoBehaviour
             animator.SetBool("IsWalking", false);
             return;
         }
-        /*
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            isWalking = !isWalking;
-            UpdateWalkingAnimation();
-        }*/
 
         if (isWalking)
         {
@@ -223,23 +217,23 @@ public class AvatarMovement : MonoBehaviour
 
     private void TransitionTo2D()
     {
-
         if (game2DCanvas != null)
             game2DCanvas.SetActive(true);
 
-        // Désactiver les objets 3D et activer le Canvas 2D
+        // Disable 3D objects and activate the 2D Canvas
         if (world3DObjects != null)
         {
             world3DObjects.SetActive(false);
+            mainCamera.enabled = false; // Disable the 3D camera
             Destroy(world3DObjects, 2f);
+            Destroy(mainCamera.gameObject, 2f); // Destroy the camera GameObject
         }
 
-        // Débloquer et rendre visible la souris
+        // Unlock and make the cursor visible
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-
-        // Désactivation du trigger après activation du mini-jeu
+        // Deactivate the trigger after activating the mini-game
         gameObject.SetActive(false);
     }
-    }
+}
