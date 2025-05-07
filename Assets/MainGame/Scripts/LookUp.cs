@@ -8,7 +8,7 @@ public class LookUp : MonoBehaviour
     public Transform targetView;       // Position where the camera should move
     public Transform videoScreen;      // The screen where the video is displayed
     public float transitionTime = 2f;  // Time to move to target position
-    public float waitTime = 13.8f;       // Time to wait before going back
+    public float waitTime = 11.8f;       // Time to wait before going back
 
     private Vector3 previousPosition;
     private Quaternion previousRotation;

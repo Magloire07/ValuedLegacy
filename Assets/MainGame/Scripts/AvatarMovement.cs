@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Video;
 using System.Collections;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class AvatarMovement : MonoBehaviour
 {
@@ -28,6 +30,10 @@ public class AvatarMovement : MonoBehaviour
     public GameObject game2DCanvas;
 
 
+    public Volume postProcessVolume;
+    private ColorAdjustments colorAdjustments;
+    private DepthOfField depthOfField;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -38,6 +44,24 @@ public class AvatarMovement : MonoBehaviour
         // Ensure video and skydome are disabled at the start
         if (videoPlayer != null) videoPlayer.Stop();
         if (skyDome != null) skyDome.SetActive(false);
+
+        // Post-process effects
+        if (postProcessVolume != null && postProcessVolume.profile != null)
+        {
+            if (postProcessVolume.profile.TryGet(out colorAdjustments))
+                colorAdjustments.active = false;
+            else
+                Debug.LogWarning("ColorAdjustments override not found in the post-process profile.");
+
+            if (postProcessVolume.profile.TryGet(out depthOfField))
+                depthOfField.active = false;
+            else
+                Debug.LogWarning("DepthOfField override not found in the post-process profile.");
+        }
+        else
+        {
+            Debug.LogWarning("PostProcessVolume or its profile is not assigned.");
+        }
     }
 
     void Update()
@@ -146,15 +170,36 @@ public class AvatarMovement : MonoBehaviour
 
     public  void StopPlayerOnHit()
     {
+        TriggerShockEffect();
         isWalking = false;
         isStopped = true;
         UpdateWalkingAnimation();
         GetComponent<Rigidbody>().isKinematic = false; // Enable physics
 
+
         StartCoroutine(FallAfterHit()); // Rotate & Fall
 
     }
+    public void TriggerShockEffect()
+    {
+        if (colorAdjustments != null)
+        {
+            colorAdjustments.active = true;
+        }
+        else
+        {
+            Debug.LogWarning("ColorAdjustments is not initialized. Ensure it exists in the post-process profile.");
+        }
 
+        if (depthOfField != null)
+        {
+            depthOfField.active = true;
+        }
+        else
+        {
+            Debug.LogWarning("DepthOfField is not initialized. Ensure it exists in the post-process profile.");
+        }
+    }
     // Rotate player backward and apply downward force
     private IEnumerator FallAfterHit()
     {
@@ -181,7 +226,7 @@ public class AvatarMovement : MonoBehaviour
         }
 
         // Move camera toward player’s head with ease-in motion
-        yield return StartCoroutine(MoveCameraToHead(2f));
+        yield return StartCoroutine(MoveCameraToHead(4f));
 
         // Once the camera reaches the head, move it instantly to the menu target
         TransitionTo2D();
