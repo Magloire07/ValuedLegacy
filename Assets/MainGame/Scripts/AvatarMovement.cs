@@ -3,6 +3,10 @@ using UnityEngine.Video;
 using System.Collections;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class AvatarMovement : MonoBehaviour
 {
@@ -33,6 +37,17 @@ public class AvatarMovement : MonoBehaviour
     public Volume postProcessVolume;
     private ColorAdjustments colorAdjustments;
     private DepthOfField depthOfField;
+
+
+    public GameObject Dialog;
+    public Button dialogBt;
+
+    private List<string> msgList = new List<string>
+    {
+        "Pourquoi ai-je toujours l'impression que mes rêves sont hors de portée ?",
+        "Comme si être une fille suffisait à définir ce que je peux ou ne peux pas devenir...",
+        "Peut-être que je suis condamnée à rester invisible, à vivre petit..."
+    };
 
     void Start()
     {
@@ -150,8 +165,29 @@ public class AvatarMovement : MonoBehaviour
         isWalking = true;
         isStopped = false;
         UpdateWalkingAnimation();
+        StartCoroutine(DisplayDialog());
     }
 
+    private IEnumerator DisplayDialog()
+    {
+        Dialog.SetActive(true);
+        TextMeshProUGUI textComponent = dialogBt.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (textComponent != null)
+        {
+            foreach (string msg in msgList)
+            {
+                textComponent.text = msg;
+                Dialog.SetActive(true); // Show button
+                yield return new WaitForSeconds(6f);
+                Dialog.SetActive(false); // Hide button
+                yield return new WaitForSeconds(1f);
+
+            }
+        }
+
+        Dialog.SetActive(false); // Optionnel : cacher après la fin
+    }
     // Coroutine for smooth rotation
     private IEnumerator RotatePlayer(Quaternion targetRotation, float duration)
     {
