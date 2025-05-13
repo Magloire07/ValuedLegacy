@@ -1,7 +1,7 @@
 ﻿/*
  * Copyright(c) 2017-2018 Sketchfab Inc.
  * License: https://github.com/sketchfab/UnityGLTF/blob/master/LICENSE
- */
+ *//*
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using System.IO;
@@ -343,3 +343,4 @@ namespace Sketchfab
 }
 
 #endif
+*/
