@@ -26,7 +26,7 @@ public class  G3WorldTrigger : MonoBehaviour
         if (game2DCanvas != null)
             game2DCanvas.SetActive(false);
 
-        SceneManager.LoadScene("EmilieScene");
+        SceneManager.LoadScene("GibsonsPart");
 
         // Verrouiller et cacher la souris pour revenir en mode 3D
         Cursor.lockState = CursorLockMode.Locked;

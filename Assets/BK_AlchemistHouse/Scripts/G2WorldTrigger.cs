@@ -27,7 +27,7 @@ public class G2WorldTrigger : MonoBehaviour
         if (game2DCanvas != null)
             game2DCanvas.SetActive(false);
 
-        SceneManager.LoadScene("G2Scene");
+        SceneManager.LoadScene("MaeJemison");
 
         // Verrouiller et cacher la souris pour revenir en mode 3D
         Cursor.lockState = CursorLockMode.Locked;
