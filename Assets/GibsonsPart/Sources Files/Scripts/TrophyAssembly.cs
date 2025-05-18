@@ -66,7 +66,7 @@ public class TrophyAssembly : MonoBehaviour
             TrophyCupIsInZone = true;
             soundEffect.Play();
             //objectToInitiate = Instantiate(Trophee, new Vector3(2.057f, 1.26f, -15.837f), Quaternion.identity);
-           // SkillManager.Instance.AddSkill("Coordination", 1, "Trophee");
+            SkillManager.Instance.AddSkill("Coordination", 1, "Trophee");
         }
     }
 
