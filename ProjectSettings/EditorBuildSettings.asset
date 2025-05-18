@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GibsonsPart/Scenes/GibsonsPart.unity
     guid: d7c71f01895b0497f9a17ae8718ee362
+  - enabled: 1
+    path: Assets/MyScenes/MaeJemison.unity
+    guid: bf4062ff488c37f4781e88f218b8039e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
